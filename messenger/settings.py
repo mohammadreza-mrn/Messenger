@@ -31,17 +31,17 @@ ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS", "*").split(",")
 # Application definition
 
 THIRD_PARTY_APPS = [
-    "daphne"
+
 ]
 
 INSTALLED_APPS = [
+    "daphne",
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    *THIRD_PARTY_APPS,
 
 ]
 
@@ -60,7 +60,7 @@ ROOT_URLCONF = 'messenger.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR,"templates")],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -106,7 +106,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 
 # Django Channels Configs
-ASGI_APPLICATION = "myproject.asgi.application"
+ASGI_APPLICATION = "messenger.asgi.application"
 
 # Internationalization
 # https://docs.djangoproject.com/en/5.2/topics/i18n/
