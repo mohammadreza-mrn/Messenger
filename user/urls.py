@@ -2,8 +2,10 @@
 
 
 from django.urls import path
-
+from . import views
 
 app_name = "user"
 
-urlpatterns = []
+urlpatterns = [
+    path("auth",views.AuthenticateView.as_view(),name="auth-view"),
+]
