@@ -3,7 +3,7 @@ from django.contrib.auth.models import AbstractUser,PermissionsMixin,BaseUserMan
 
 
 
-class CustomUser(AbstractUser,PermissionsMixin):
+class CustomUser(AbstractUser):
 
     profile_picture = models.ImageField(upload_to="profile_pictures",verbose_name="Profile Picture",null=True,blank=True)
     last_seen = models.DateTimeField(auto_now=True,verbose_name="Last Seen",null=True,blank=True)

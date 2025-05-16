@@ -61,7 +61,7 @@
         <form>
           <div class="mb-3">
             <label for="login-username" class="form-label">Username</label>
-            <input type="text" class="form-control" id="login-username" placeholder="Enter your username">
+            <input type="text" name="username" class="form-control" id="login-username" placeholder="Enter your username">
           </div>
           <div class="mb-3">
             <label for="login-password" class="form-label">Password</label>
@@ -73,20 +73,25 @@
 
       <!-- Signup Form -->
       <div class="tab-pane fade" id="signup" role="tabpanel">
-        <form>
+        <form action="{% url 'user:register-view' %}" method="post">
+          {% csrf_token %}
           <div class="mb-3">
             <label for="signup-username" class="form-label">Username</label>
-            <input type="text" class="form-control" id="signup-username" placeholder="Choose a username">
+            <input type="text" name="username" class="form-control" id="signup-username" placeholder="Choose a username">
+            {{form.username.errors}}
           </div>
           <div class="mb-3">
             <label for="signup-email" class="form-label">Email</label>
-            <input type="email" class="form-control" id="signup-email" placeholder="Enter your email">
+            <input type="email" name="email" class="form-control" id="signup-email" placeholder="Enter your email">
+            {{form.email.errors}}
           </div>
           <div class="mb-3">
             <label for="signup-password" class="form-label">Password</label>
-            <input type="password" class="form-control" id="signup-password" placeholder="Choose a password">
+            <input type="password" name="password" class="form-control" id="signup-password" placeholder="Choose a password">
+            {{form.password.errors}}
           </div>
           <button type="submit" class="btn btn-primary w-100">Sign Up</button>
+          
         </form>
       </div>
 
